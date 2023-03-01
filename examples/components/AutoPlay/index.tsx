@@ -28,17 +28,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 })
-
 export default () => (
   <Swiper style={styles.wrapper} autoplay>
-    <View testID="Hello" style={styles.slide1}>
-      <Text style={styles.text}>Hello Swiper</Text>
-    </View>
-    <View testID="Beautiful" style={styles.slide2}>
-      <Text style={styles.text}>Beautiful</Text>
-    </View>
-    <View testID="Simple" style={styles.slide3}>
-      <Text style={styles.text}>And simple</Text>
-    </View>
+    //bannerList is an array that was requested by axios
+     {bannerList.map((item, index) => {
+                return (       
+                    <Image
+                      style={styles.slide1}
+                      source={{uri: `${item.pictureUrl}`}}
+                      resizeMode="contain"
+                    />
+                );
+              })}
   </Swiper>
 )
